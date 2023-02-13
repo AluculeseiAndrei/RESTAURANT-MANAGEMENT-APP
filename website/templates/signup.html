@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{%block title%}Register{%endblock%}
+{%block content%}
+<div class="container d-flex justify-content-center min-vh-100 align-items-center ">
+<form method="POST">
+    <h3 align="center">Register</h3>
+<div align="center ">
+    <div class="form-group" >
+        <label for="email">Email adress</label>    
+        <input placeholder="Email" type="email" class="form-control" id="email" name="email">
+    </div>
+
+
+    <div class="form-group">
+        <label for="firstName">firstName</label>    
+        <input class="form-control" placeholder="ex.Popescu" type="text"  id="firstName" name="firstName" >
+    </div>
+
+
+    <div class="form-group">
+        <label for="password1">Password</label>    
+        <input placeholder="Password" type="password" class="form-control" id="password1" name="password1" >
+    </div>
+
+    <div class="form-group">
+        <label for="password2">Repeat password</label>    
+        <input placeholder="Password" type="password" class="form-control" id="password2" name="password2" >
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+</div>
+{%endblock%} 
