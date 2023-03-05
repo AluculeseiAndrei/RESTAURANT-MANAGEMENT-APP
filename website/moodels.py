@@ -14,20 +14,11 @@ class User(db.Model,UserMixin):
 class Table(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(150))
+    products=db.Column(db.String(1000))
+    total=db.Column(db.Float)
     user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
-    #total_price=db.Column(db.Integer)
-    #units=db.Column(db.Integer)
-    #price=db.Column(db.Integer)
-    
-    #tips=db.Column(db.Integer)
-    #product_name=db.Column(db.String(150))
- 
 
-#class Generic_table(db.Model):
- #   id=db.Column(db.Integer,primary_key=True)
-  #  name=db.Column(db.String(150))
-  #  tables=db.relationship('Table')
-   # user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
+
 
 class Admin_data(db.Model):
     id=db.Column(db.Integer,primary_key=True)

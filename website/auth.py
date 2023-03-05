@@ -53,5 +53,5 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             flash("Contul a fost inregistrat cu succes !",category="success")
-            return render_template("home.html",user=current_user)#render
+            return redirect(url_for('views.home'))
     return render_template("signup.html",user=current_user)

@@ -24,7 +24,11 @@
                     <div class="form-group">
                         <label for="tableName">Table name</label>    
                         <input class="form-control" placeholder="Masa de sus" type="text"  id="tableName" name="tableName" >
-                    </div>
+                        <br>
+                        <label for="Products">Products</label>
+                        <br>
+                        <textarea class="form-control" type="text" id="Products" name="Products" rows="3"></textarea>
+                      </div>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -41,6 +45,40 @@
     <div>Tables which you created :</div>
     <br>
     {% for t in table %}
-        <div>{{loop.index}}.{{t.name}}</div>
-    {%endfor%}
+    {% if loop.index % 3 == 1 %}
+        <div class="container my-3">
+            <div class="row">
+    {% endif %}
+
+    <div class="col-md-4 mb-3">
+        <div class="card p-3">
+          <div class="card-header">
+            <h5 class="text-center">{{t.name}}</h5>
+          </div>
+          <div class="card-body">
+
+            <p class="card-text">
+              {%for i in t.products%}{{i}}{%if i=='\n'%}<br>{%endif%}{%endfor%}
+            </p>
+          </div>
+          <div class="card-footer">
+            
+            <p class="card-text">Total price: {{t.total}} lei</p>
+            <a href="{{url_for('views.edit',id=t.id,name=t.name)}}" class="btn btn-success float-left">Edit</a>
+
+            <a href="{{url_for('views.delete',id=t.id)}}" class="btn btn-danger float-right">Delete</a>
+          </div>
+        </div>
+      </div>
+      
+      
+                
+
+    {% if loop.index % 3 == 0 or loop.last %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+
 {%endblock%}
